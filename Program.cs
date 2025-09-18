@@ -50,6 +50,14 @@
             Console.ReadLine();
 
             //Kvittens (Receipt)
+            Console.WriteLine("\n--- KVITTO ---");
+            Console.WriteLine($"Film: {movie}");
+            Console.WriteLine($"Antal biljetter: {tickets}");
+            Console.WriteLine($"Studentrabett: {(isStudent ? "Ja" : "Nej")}");
+            Console.WriteLine($"Totalt pris: {total:F2} {CURRENCY} (inkl. moms\n)");
+
+            Console.WriteLine("Tack för ditt köp! Ha en trevlig film!");
+            Console.WriteLine("==============================");
         }
     }
 }
