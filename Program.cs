@@ -21,6 +21,13 @@
                 Console.WriteLine($"{i + 1}. {movies[i]} - {priceWithTax:F2} {CURRENCY} (inkl. moms)");
             }
 
+            //Val av film (Choose a movie)
+            Console.Write("Välj en film genom att ange motsvarande nummer: ");
+            int choice = int.Parse(Console.ReadLine());
+            string movie = movies[choice - 1];
+            double basePrice = prices[choice - 1];
+
+
         }
     }
 }
