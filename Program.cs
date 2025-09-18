@@ -44,7 +44,12 @@
                 Console.WriteLine("Ingen rabatt tillämpad (endast studenter får rabatt).");
             }
 
-            //
+            //Beräkna totalpris (Calculate total price)
+            double pricePerTicket = isStudent ? basePrice * (1 - STUDENT_DISCOUNT) : BasePrice;
+            double total = tickets * pricePerTicket * (1 + TAX);
+            Console.ReadLine();
+
+            //Kvittens (Receipt)
         }
     }
 }
