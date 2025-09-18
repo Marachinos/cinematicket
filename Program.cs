@@ -31,6 +31,19 @@
             Console.WriteLine("Hur många biljetter vill du köpa? ");
             int ticket = int.Parse(Console.ReadLine());
 
+            //Studentrabatt (Student discount)
+            Console.Write("Är du student? (ja/nej): ");
+            bool isStudent = Console.ReadLine().ToLower() == "ja";
+
+            if (isStudent)
+            {
+                Console.WriteLine("Studentrabatt tillämpad.");
+            }
+            else
+            {
+                Console.WriteLine("Ingen rabatt tillämpad (endast studenter får rabatt).");
+            }
+
             //
         }
     }
