@@ -27,7 +27,11 @@
             string movie = movies[choice - 1];
             double basePrice = prices[choice - 1];
 
+            //Biljetter (Tickets)
+            Console.WriteLine("Hur många biljetter vill du köpa? ");
+            int ticket = int.Parse(Console.ReadLine());
 
+            //
         }
     }
 }
