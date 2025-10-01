@@ -9,7 +9,7 @@ namespace biobiljett
         {
             //Filmer, priser, rabatt och moms (Movies, prices, discount and taxes)
             string[] movies = { "Super Mario Bros. Filmen", "Dumma Mig 3", "The BeeKeeper", "The Old Guard 2" };
-            string[] showTimes = { "17:00", "19:00", "21:00" };
+            string[] showTimes = { "kl. 17:00", "kl. 19:00", "kl. 21:00" };
             double[] prices = { 100, 100, 200, 200 };
             const double TAX = 0.06;    //6% moms (taxes)
             const double STUDENT_DISCOUNT = 0.15;   //15% rabatt för studenter (student discount)
@@ -60,17 +60,29 @@ namespace biobiljett
 
             //Beräkna totalpris (Calculate total price)
             double pricePerTicket = isStudent ? basePrice * (1 - STUDENT_DISCOUNT) : basePrice;
+            double discountAmount = isStudent ? basePrice * STUDENT_DISCOUNT * ticket : 0;
             double total = ticket * pricePerTicket * (1 + TAX);
+            double totalExclTax = ticket * pricePerTicket;
+            double taxAmount = total - totalExclTax;
             Console.ReadLine();
 
             //Kvittens (Receipt)
             Console.WriteLine("\n========== KVITTO ==========\n");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"Film: {movie}");
             Console.WriteLine($"Tid: {selectedTime}");
-            Console.WriteLine($"Antal biljetter: {ticket}");
+            Console.WriteLine($"Antal biljetter: {ticket}\n");
+            Console.ResetColor();
             Console.WriteLine($"Studentrabett: {(isStudent ? "Ja" : "Nej")}");
+            Console.WriteLine($"StudentRabatt (15%): {discountAmount:F2} {CURRENCY}");
+            Console.WriteLine($"Moms (6%): {taxAmount:F2} {CURRENCY}");
+            Console.WriteLine($"Pris exkl. moms: {(ticket * pricePerTicket):F2} {CURRENCY}\n");
+            Console.ForegroundColor= ConsoleColor.DarkMagenta;
             Console.WriteLine($"Totalt pris: {total:F2} {CURRENCY} (inkl. moms)\n");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Tack för ditt köp! Ha en trevlig filmupplevelse!\n");
+            Console.ResetColor();
             Console.WriteLine("=============================");
 
         }
